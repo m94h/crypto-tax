@@ -8,6 +8,7 @@ gem "bootsnap", require: false
 gem "devise"
 gem "importmap-rails"
 gem "jbuilder"
+gem "money-rails"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.8"
 gem "redis", "~> 4.0"
