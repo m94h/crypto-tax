@@ -7,6 +7,10 @@ class CryptoOperation < ApplicationRecord
   validates :operation_type, inclusion: { in: %w[buy sell] }
 
   monetize :capital_cents
+
+  def price
+    capital / shares
+  end
 end
 
 # == Schema Information
