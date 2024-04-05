@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class CryptoOperation < ApplicationRecord
-  enum operation_type: [ :buy, :sell ]
-
   belongs_to :crypto_currency, optional: false
 
   validates :shares, :timestamp, :capital, :operation_type, presence: true
+  validates :operation_type, inclusion: { in: %w[buy sell] }
 
   monetize :capital_cents
 end

@@ -7,7 +7,7 @@ ActiveAdmin.register CryptoOperation do
     selectable_column
     id_column
     column :timestamp
-    column :currency
+    column :crypto_currency
     column :operation_type
     column :shares
     column :capital
