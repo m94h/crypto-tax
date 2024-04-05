@@ -3,17 +3,17 @@
 Run FIFO for buy and sell operations related to crypto currencies
 for tax purposes in Chile.
 
-* Ruby version
+## Ruby version
 3.2.2
 
-* Database creation
+## Database creation
 `rails db:create`
 
-* Database initialization
+## Database initialization
 `rails db:schema:load`
 `rails db:seed`
 
-* How to use
+## How to use
 Access to admin panel with user admin@gmail.com, Password!
 Create your buy and sell operations
 Go to "Tax operations" page to see result.
