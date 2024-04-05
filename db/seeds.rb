@@ -5,6 +5,10 @@ if Rails.env.development?
     obj.password = 'Password!'
   end
 
+  # Create crypto currencies
+  CryptoCurrency.find_or_create_by!(name: "Bitcoin", symbol: "BTC")
+  CryptoCurrency.find_or_create_by!(name: "Ethereum", symbol: "ETH")
+
   # Create IPC values
   [
    ["2023-12-1", -0.49998],
