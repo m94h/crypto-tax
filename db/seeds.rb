@@ -1,8 +1,57 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# frozen_string_literal: true
+
+if Rails.env.development?
+  AdminUser.find_or_create_by!(email: "admin@gmail.com") do |obj|
+    obj.password = 'Password!'
+  end
+
+  # Create IPC values
+  [
+   ["2023-12-1", -0.49998],
+   ["2023-11-1", 0.70014],
+   ["2023-10-1", 0.39982],
+   ["2023-9-1", 0.70013],
+   ["2023-8-1", 0.10040],
+   ["2023-7-1", 0.40002],
+   ["2023-6-1", -0.19989],
+   ["2023-5-1", 0.09987],
+   ["2023-4-1", 0.29960],
+   ["2023-3-1", 1.09985],
+   ["2023-2-1", -0.10009],
+   ["2023-1-1", 0.79982],
+   ["2022-12-1", 0.29976],
+   ["2022-11-1", 0.99979],
+   ["2022-10-1", 0.50019],
+   ["2022-9-1", 0.90015],
+   ["2022-8-1", 1.19990],
+   ["2022-7-1", 1.40006],
+   ["2022-6-1", 0.90014],
+   ["2022-5-1", 1.20008],
+   ["2022-4-1", 1.40044],
+   ["2022-3-1", 1.90007],
+   ["2022-2-1", 0.30005],
+   ["2022-1-1", 1.19992],
+   ["2021-12-1", 0.80014],
+   ["2021-11-1", 0.50010],
+   ["2021-10-1", 1.30017],
+   ["2021-9-1", 1.19960],
+   ["2021-8-1", 0.39971],
+   ["2021-7-1", 0.79979],
+   ["2021-6-1", 0.10013],
+   ["2021-5-1", 0.29995],
+   ["2021-4-1", 0.39969],
+   ["2021-3-1", 0.39959],
+   ["2021-2-1", 0.19980],
+   ["2021-1-1", 0.69973],
+   ["2020-12-1", 0.30017],
+   ["2020-11-1", -0.10012],
+   ["2020-10-1", 0.70021],
+   ["2020-9-1", 0.59979],
+   ["2020-8-1", 0.10044],
+   ["2020-7-1", 0.09956],
+   ["2020-6-1", -0.10045],
+   ["2020-5-1", -0.1002]
+  ].each do |date, value|
+    Ipc.find_or_create_by!(date: date, value: value.to_d / 100)
+  end
+end
