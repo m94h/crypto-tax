@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_05_210127) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_05_210927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,4 +47,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_05_210127) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "crypto_operations", force: :cascade do |t|
+    t.string "operation_type", null: false
+    t.decimal "shares", null: false
+    t.datetime "timestamp", null: false
+    t.integer "capital_cents", null: false
+    t.string "capital_currency", null: false
+    t.bigint "crypto_currency_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crypto_currency_id"], name: "index_crypto_operations_on_crypto_currency_id"
+    t.index ["operation_type"], name: "index_crypto_operations_on_operation_type"
+  end
+
+  add_foreign_key "crypto_operations", "crypto_currencies"
 end
